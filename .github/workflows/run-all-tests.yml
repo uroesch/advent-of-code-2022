@@ -1,0 +1,29 @@
+# -----------------------------------------------------------------------------
+# Test run-all-tests
+# Author: Urs Roesch https://github.com/uroesch
+# Version: 0.1.0 
+# -----------------------------------------------------------------------------
+name: run-all-tests
+
+on:
+  push:
+    branches: 
+    - workflow
+    - workflow/*
+  pull_request:
+    branches:
+    - master
+    - main
+
+jobs:
+  run-all-test:
+    timeout-minutes: 20
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Run all tests
+      shell: bash
+      run: bash ci-cd/run-tests.sh --install-dependencies

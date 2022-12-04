@@ -5,5 +5,5 @@ test:
 	bats test/*bats
 
 dependencies:
-	sudo apt install $(cat .dependencies)
+	sudo apt install $$(cat .dependencies) >/dev/null 2>&1
 

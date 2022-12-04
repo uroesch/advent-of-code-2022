@@ -1,5 +1,8 @@
 task :default => :test
 
+task :dependencies do
+  # nothing to do yet
+end
 
 task :test do
   sh %(ruby test/calories_test.rb)
